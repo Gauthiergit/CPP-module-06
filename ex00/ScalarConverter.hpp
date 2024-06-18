@@ -6,7 +6,7 @@
 /*   By: gpeyre <gpeyre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:23:53 by gpeyre            #+#    #+#             */
-/*   Updated: 2024/06/17 17:26:37 by gpeyre           ###   ########.fr       */
+/*   Updated: 2024/06/18 17:46:41 by gpeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,28 @@
 # define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <string>
+#include <climits>
+#include <cstdlib>
+
+#define BLUE "\033[94m"
+#define RESET "\033[0m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
 
 class ScalarConverter
 {
 	private:
-	/*private content*/
+
+	ScalarConverter();
+	ScalarConverter(const ScalarConverter &copy);
+	ScalarConverter& operator=(const ScalarConverter &change);
 
 	public:
-	ScalarConverter();
-	ScalarConverter(/*param*/);
-	ScalarConverter(const ScalarConverter &copy);
-	~ScalarConverter();
 
-	ScalarConverter& operator=(const ScalarConverter &change);
+	~ScalarConverter();
+	static void convert(const std::string& input);
 };
 
 #endif
