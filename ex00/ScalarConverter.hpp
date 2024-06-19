@@ -6,7 +6,7 @@
 /*   By: gpeyre <gpeyre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:23:53 by gpeyre            #+#    #+#             */
-/*   Updated: 2024/06/18 17:46:41 by gpeyre           ###   ########.fr       */
+/*   Updated: 2024/06/19 13:18:04 by gpeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ class ScalarConverter
 
 	~ScalarConverter();
 	static void convert(const std::string& input);
+	static int countoccur(const std::string& input, const char cara);
+	static bool checkinput(const std::string& input);
+	static bool onlyzero(const std::string& input);
 };
 
 #endif
