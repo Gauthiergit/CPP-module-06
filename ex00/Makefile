@@ -1,5 +1,5 @@
 # Program name
-NAME    	= scalar
+NAME    	= convert
 
 # Compiler options
 CXX     = c++ 
@@ -23,7 +23,7 @@ $(NAME): $(OBJ)
 		@echo "$(BOLD)$(BLUE)🛠️ 🚧     Compiling project...     🚧🛠️$(RESET_COLOR)"
 		@echo "\n"
 		@$(CXX) $(CFLAGS) -o $(NAME) $(OBJ)
-		@echo "$(BOLD)$(GREEN)🧑‍💻   scalar ready to use   🧑‍💻$(RESET_COLOR)"
+		@echo "$(BOLD)$(GREEN)🧑‍💻   convert ready to use   🧑‍💻$(RESET_COLOR)"
 
 $(DIR_OBJ):
 	@mkdir -p $(DIR_OBJ)

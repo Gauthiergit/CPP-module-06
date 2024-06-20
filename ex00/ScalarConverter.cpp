@@ -6,7 +6,7 @@
 /*   By: gpeyre <gpeyre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 10:57:31 by gpeyre            #+#    #+#             */
-/*   Updated: 2024/06/19 13:19:42 by gpeyre           ###   ########.fr       */
+/*   Updated: 2024/06/20 11:30:24 by gpeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,21 +61,44 @@ bool ScalarConverter::onlyzero(const std::string& input)
 
 void	ScalarConverter::convert(const std::string& input)
 {
-	char 		toChar;
-	int 		toInt = 0;
-	float 		toFloat = 0.0f;
-	double		toDouble = 0.0;
-
 	if (!ScalarConverter::checkinput(input))
 	{
 		std::cout << RED << "Error: bad input" << RESET << std::endl;
 		return ;
 	}
 
-	toFloat = std::atof(input.c_str());
-	toChar = static_cast<char>(toFloat);
-	toInt = static_cast<int>(toFloat);
-	toDouble = static_cast<double>(toFloat);
+	float toFloat = std::atof(input.c_str());
+	char toChar = static_cast<char>(toFloat);
+	int toInt = static_cast<int>(toFloat);
+	double toDouble = static_cast<double>(toFloat);
+	std::string infinite[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
+
+	if (((input[0] == '-' || input[0] == '+') && std::isalpha(input[1])) || std::isalpha(input[0]))
+	{
+		std::cout << BLUE << "char: " << RESET << "Impossible" << std::endl;
+		std::cout << BLUE << "int: " << RESET << "Impossible" << std::endl;
+
+		for(int i = 0; i < 6; i++)
+		{
+			if (infinite[i] == input)
+			{
+				if (i < 3)
+				{
+					std::cout << BLUE << "float: " << RESET << infinite[i] << std::endl;
+					std::cout << BLUE << "double: " << RESET << infinite[i + 3] << std::endl;
+				}
+				else
+				{
+					std::cout << BLUE << "float: " << RESET << infinite[i - 3] << std::endl;
+					std::cout << BLUE << "double: " << RESET << infinite[i] << std::endl;
+				}
+				return ;
+			}
+		}
+		std::cout << BLUE << "float: " << RESET << "Impossible" << std::endl;
+		std::cout << BLUE << "double: " << RESET << "Impossible" << std::endl;
+		return ;
+	}
 
 	if (!std::isprint(toChar))
 		std::cout << BLUE << "char: " << RESET << "Non displayable" << std::endl;
