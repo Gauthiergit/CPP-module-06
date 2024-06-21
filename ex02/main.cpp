@@ -6,7 +6,7 @@
 /*   By: gpeyre <gpeyre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:22:32 by gpeyre            #+#    #+#             */
-/*   Updated: 2024/06/20 16:58:57 by gpeyre           ###   ########.fr       */
+/*   Updated: 2024/06/21 15:05:09 by gpeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main()
 	obj = generate();
 	identify(obj);
 	identify(*obj);
+	delete obj;
 	
 	return 0;
 }
